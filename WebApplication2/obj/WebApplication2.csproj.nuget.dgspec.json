@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vinhh\\RiderProjects\\WebApplication2\\WebApplication2\\WebApplication2.csproj": {}
+    "C:\\Users\\vinhh\\RiderProjects\\ASP.NET_basic\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vinhh\\RiderProjects\\WebApplication2\\WebApplication2\\WebApplication2.csproj": {
+    "C:\\Users\\vinhh\\RiderProjects\\ASP.NET_basic\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vinhh\\RiderProjects\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Users\\vinhh\\RiderProjects\\ASP.NET_basic\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\vinhh\\RiderProjects\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+        "projectPath": "C:\\Users\\vinhh\\RiderProjects\\ASP.NET_basic\\WebApplication2\\WebApplication2.csproj",
         "packagesPath": "C:\\Users\\vinhh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vinhh\\RiderProjects\\WebApplication2\\WebApplication2\\obj\\",
+        "outputPath": "C:\\Users\\vinhh\\RiderProjects\\ASP.NET_basic\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vinhh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,11 +38,29 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.1, )"
             },

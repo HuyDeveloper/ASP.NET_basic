@@ -1,6 +1,10 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2;
-using WebApplication2.Model;
+using WebApplication2.Interfaces;
+using WebApplication2.Profiles;
+using WebApplication2.Repository;
+using WebApplication2.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
-builder.Services.AddDbContext<Context>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("DB")));
-
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
+builder.Services.AddDbContext<Context>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("DB")).LogTo(Console.WriteLine));
+builder.Services.AddAutoMapper(typeof(ShoeProfile));
+builder.Services.AddScoped<IShoeRepository, ShoeRepository>();
+builder.Services.AddScoped<IShoeServices, ShoeServices>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies((typeof(Program)).Assembly));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
